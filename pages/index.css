@@ -16,6 +16,7 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__checkbox/profile__checkbox.css);
 @import url(../blocks/profile/__button/profile__button.css);
+@import url(../blocks/profile/__open-popup/profile__open-popup.css);
 
 @import url(../blocks/popup/__open-popup/popup__open-popup.css);
 
