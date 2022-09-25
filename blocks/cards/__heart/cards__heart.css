@@ -1,0 +1,11 @@
+.cards__heart {
+  width: 22px;
+  height: 19px;
+  margin-right: 20px;
+  background-image: url(../../../images/heart.svg);
+}
+
+.cards__heart:hover {
+  cursor: pointer;
+}
+
