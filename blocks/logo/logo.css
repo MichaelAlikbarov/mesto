@@ -12,3 +12,8 @@
     margin-bottom: 31.6px;
   }
 }
+
+.logo:hover {
+  cursor: pointer;
+  background: #000000;
+}

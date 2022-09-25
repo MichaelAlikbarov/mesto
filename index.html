@@ -9,7 +9,9 @@
 </head>
 <body class="page">
   <header class="header">
-    <img class="logo" src="./images/Logo_mesto.svg" alt="логотип">
+    <a href="#">
+      <img class="logo" src="./images/Logo_mesto.svg" alt="логотип">
+    </a>git
   </header>
   <main class="content">
     <section class="profile">
@@ -29,7 +31,7 @@
         <img src="./images/button_add.svg" alt="кнопка добавить фото">
       </button>
     </section>
-    <section class="cards">
+    <section class="cards" aria-label="информация о посещенных местах: фото, название, лайк">
       <ul class="cards__list">
         <li class="cards__card">
           <img class="cards__foto" src="./images/karachaevsk.jpg" alt="Карачаевск">
@@ -42,35 +44,35 @@
           <img class="cards__foto" src="./images/elbrus.jpg" alt="Эльбрус">
           <div class="cards__place">
             <p class="cards__name">Гора Эльбрус</p>
-            <img class="cards__heart" src="./images/heart.svg">
+            <img class="cards__heart" src="./images/heart.svg" alt="лайк">
           </div>
         </li>
         <li class="cards__card">
           <img class="cards__foto" src="./images/domby.jpg" alt="Домбай">
           <div class="cards__place">
             <p class="cards__name">Домбай</p>
-            <img class="cards__heart" src="./images/heart.svg">
+            <img class="cards__heart" src="./images/heart.svg" alt="лайк">
           </div>
         </li>
         <li class="cards__card">
           <img class="cards__foto" src="./images/karachaevsk.jpg" alt="Карачаевск">
           <div class="cards__place">
             <p class="cards__name">Карачаево-Черкессия</p>
-            <img class="cards__heart" src="./images/heart.svg">
+            <img class="cards__heart" src="./images/heart.svg" alt="лайк">
           </div>
         </li>
         <li class="cards__card">
           <img class="cards__foto" src="./images/elbrus.jpg" alt="Эльбрус">
           <div class="cards__place">
             <p class="cards__name">Гора Эльбрус</p>
-            <img class="cards__heart" src="./images/heart.svg">
+            <img class="cards__heart" src="./images/heart.svg" alt="лайк">
           </div>
         </li>
         <li class="cards__card">
           <img class="cards__foto" src="./images/domby.jpg" alt="Домбай">
           <div class="cards__place">
             <p class="cards__name">Домбай</p>
-            <img class="cards__heart" src="./images/heart.svg">
+            <img class="cards__heart" src="./images/heart.svg" alt="лайк">
           </div>
         </li>
       </ul>
@@ -94,6 +96,6 @@
       <button class="popup__save">Сохранить</button>
     </div>
   </section>
-  <script type="text/javascript" src="./scripts/index.js"></script>
+  <script src="./scripts/index.js"></script>
 </body>
 </html>
