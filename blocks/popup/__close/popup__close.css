@@ -5,7 +5,7 @@
   position: absolute;
   top: -40px;
   right: -40px;
-
+  background: url(../../../images/Close_Icon.svg);
 }
 
 .popup__close:hover {
@@ -16,5 +16,8 @@
 @media (max-width: 968px) {
   .popup__close {
     right: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../../../images/CloseIcon320.svg);
   }
 }

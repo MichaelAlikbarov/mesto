@@ -7,6 +7,7 @@
   font-size: 18px;
   line-height: 1.21;
   color: #545454;
+  font-family: 'Inter', 'Arial', sans-serif;
 }
 
 .footer__copyright::before {
@@ -18,5 +19,6 @@
     max-width: 282px;
     margin-top: 48px;
     margin-bottom: 36px;
+    font-size: 14px;
   }
 }
