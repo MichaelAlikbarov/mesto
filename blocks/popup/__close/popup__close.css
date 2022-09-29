@@ -6,6 +6,7 @@
   top: -40px;
   right: -40px;
   background: url(../../../images/Close_Icon.svg);
+  border: none;
 }
 
 .popup__close:hover {
