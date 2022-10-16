@@ -31,48 +31,6 @@
     </section>
     <section class="cards" aria-label="информация о посещенных местах: фото, название, лайк">
       <ul class="cards__list">
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/karachaevsk.jpg" alt="Карачаевск">
-          <div class="cards__place">
-            <h2 class="cards__name">Карачаевск</h2>
-            <button class="cards__heart cards__heart_active" type="button"></button>
-          </div>
-        </li>
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/elbrus.jpg" alt="Эльбрус">
-          <div class="cards__place">
-            <h2 class="cards__name">Гора Эльбрус</h2>
-            <button class="cards__heart" type="button"></button>
-          </div>
-        </li>
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/domby.jpg" alt="Домбай">
-          <div class="cards__place">
-            <h2 class="cards__name">Домбай</h2>
-            <button class="cards__heart" type="button"></button>
-          </div>
-        </li>
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/karachaevsk.jpg" alt="Карачаевск">
-          <div class="cards__place">
-            <h2 class="cards__name">Карачаево-Черкессия</h2>
-            <button class="cards__heart" type="button"></button>
-          </div>
-        </li>
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/elbrus.jpg" alt="Эльбрус">
-          <div class="cards__place">
-            <h2 class="cards__name">Гора Эльбрус</h2>
-            <button class="cards__heart" type="button"></button>
-          </div>
-        </li>
-        <li class="cards__card">
-          <img class="cards__foto" src="./images/domby.jpg" alt="Домбай">
-          <div class="cards__place">
-            <h2 class="cards__name">Домбай</h2>
-            <button class="cards__heart" type="button"></button>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
@@ -92,6 +50,37 @@
       </form>
     </div>
   </section>
+  <section class="popup popup_add-card">
+    <div class="popup__container">
+      <form class="popup__input-info popup__input-info_add-card" id="place">
+        <button class="popup__close popup__close_add-card" type="button"></button>
+        <div class="popup__content">
+          <h2 class="popup__title">Новое место</h2>
+          <input class="popup__info popup__info_type_place" type="text" name="info"  form="place" placeholder="Название" value="">
+          <input class="popup__info popup__info_type_link" type="text" name="info" form="place" placeholder="Ссылка на картинку">
+          <button class="popup__save" type="submit">Создать</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- попап для картинки -->
+  <section class="popup popup_image-open">
+      <figure class="popup__container popup__container_image">
+        <button class="popup__close popup__close_image" type="button"></button>
+        <img class="popup__image" src="" alt="фотография места">
+        <figcaption class="popup__title popup__title_image-title"></figcaption>
+      </figure>
+  </section>
+ <template class="template">
+  <li class="cards__card">
+    <img class="cards__foto" src="" alt="фотография места">
+    <div class="cards__place">
+      <h2 class="cards__name"></h2>
+      <button class="cards__heart" type="button"></button>
+    </div>
+    <button class="cards__delete"></button>
+  </li>
+ </template>
   <script src="./scripts/index.js"></script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+.popup__container_image {
+  border-radius: 0px;
+  max-width: 816px;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+}
