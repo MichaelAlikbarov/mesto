@@ -10,6 +10,5 @@
   align-items: center;
   justify-content: center;
   display: none;
-
-  transition: visibility 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
+

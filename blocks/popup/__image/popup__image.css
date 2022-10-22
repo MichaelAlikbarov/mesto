@@ -5,10 +5,3 @@
   display: block;
   visibility: visible;
 }
-
-@media (max-width: 768px) {
-  .popup__image {
-    width: 240px;
-    height: 299px;
-  }
-}

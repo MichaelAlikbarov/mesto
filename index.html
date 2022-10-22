@@ -37,43 +37,43 @@
   <footer class="footer">
     <p class="footer__copyright">2020 Mesto Russia</p>
   </footer>
-  <section class="popup">
+  <section class="popup" id="popup-name">
     <div class="popup__container">
       <form class="popup__input-info">
         <button class="popup__close" type="button"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__info popup__info_type_name" type="text" name="info" placeholder="Имя" value="">
-          <input class="popup__info popup__info_type_job" type="text" name="info" placeholder="О себе любимом" value="">
+          <input class="popup__info popup__info_type_name" type="text" name="info" placeholder="Имя" value="" required>
+          <input class="popup__info popup__info_type_job" type="text" name="info" placeholder="О себе любимом" value="" required>
           <button class="popup__save" type="submit">Сохранить</button>
         </div>
       </form>
     </div>
   </section>
-  <section class="popup popup_add-card">
+  <section class="popup popup_add-card" id="popup-place">
     <div class="popup__container">
       <form class="popup__input-info popup__input-info_add-card" id="place">
         <button class="popup__close popup__close_add-card" type="button"></button>
         <div class="popup__content">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__info popup__info_type_place" type="text" name="info"  form="place" placeholder="Название" value="">
-          <input class="popup__info popup__info_type_link" type="text" name="info" form="place" placeholder="Ссылка на картинку">
+          <input class="popup__info popup__info_type_place" type="text" name="info"  form="place" placeholder="Название" value="" required>
+          <input class="popup__info popup__info_type_link" type="url" name="info" form="place" placeholder="Ссылка на картинку" required>
           <button class="popup__save" type="submit">Создать</button>
         </div>
       </form>
     </div>
   </section>
   <!-- попап для картинки -->
-  <section class="popup popup_image-open">
+  <section class="popup popup_image-open" id="popup-image">
       <figure class="popup__container popup__container_image">
         <button class="popup__close popup__close_image" type="button"></button>
-        <img class="popup__image" src="фото" alt="фотография места">
+        <img class="popup__image" src="" alt="фотография места">
         <figcaption class="popup__title popup__title_image-title"></figcaption>
       </figure>
   </section>
  <template class="template">
   <li class="cards__card">
-    <img class="cards__foto" src="фото" alt="фотография места">
+    <img class="cards__foto">
     <div class="cards__place">
       <h2 class="cards__name"></h2>
       <button class="cards__heart" type="button"></button>
@@ -81,6 +81,7 @@
     <button class="cards__delete"></button>
   </li>
  </template>
+  <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
 </html>
