@@ -27,8 +27,6 @@ const popupImage = document.querySelector(".popup_image-open");
 const popupImageClose = popupImage.querySelector(".popup__close_image");
 const popupCardsImage = popupImage.querySelector(".popup__image");
 const popupTitleImage = popupImage.querySelector(".popup__title_image-title");
-const popupContainerImage = popupImage.querySelector(".popup__container_image");
-console.log(popupContainerImage);
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
@@ -117,7 +115,7 @@ popupImageClose.addEventListener("click", () => {
   closePopup(popupImage)
 });
 formAddCard.addEventListener('submit', handleCardFormSubmit);
-popupContainerImage.addEventListener("click", () => {
+popupImage.addEventListener("click", () => {
   closePopup(popupImage)
 });
 
