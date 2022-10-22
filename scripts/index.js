@@ -114,7 +114,7 @@ cardPopupCloseButton.addEventListener("click", () => {
 popupImageClose.addEventListener("click", () => {
   closePopup(popupImage)
 });
-formAddCard.addEventListener('submit', handleCardFormSubmit);
+formAddCard.addEventListener('submit', handleCardFormSubmit); //доработать закрытие попап по клику на поле вне картинки
 popupImage.addEventListener("click", () => {
   closePopup(popupImage)
 });

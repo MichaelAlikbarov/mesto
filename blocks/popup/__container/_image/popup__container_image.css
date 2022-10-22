@@ -1,12 +1,13 @@
 .popup__container_image {
   border-radius: 0px;
+
   width: 816px;
   height: 540px;
   visibility: hidden;
 
   display: flex;
   flex-direction: column;
-  z-index: 1;
+
   /* align-items: center;
   justify-self: center; */
 }
