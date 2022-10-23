@@ -36,9 +36,9 @@ const closePopup = (popupElement) => {
 };
 
 const handleOpenProfileForm = () => {
-  openPopup(popupFormName);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
+  openPopup(popupFormName);
 };
 
 function handleProfileFormSubmit (evt) {
@@ -52,8 +52,7 @@ const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const card = createCard(inputNameCard.value, inputLinkCard.value);
   cardsContainer.prepend(card);
-  inputNameCard.value = "";
-  inputLinkCard.value = "";
+  formAddCard.reset();
   closePopup(popupAddCard);
 };
 
