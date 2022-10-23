@@ -76,25 +76,25 @@ const createCard = (name, link) => {
   cardItemImage.alt = name;
   cardItemName.textContent = name;
 
-//заполнить попап с карточкой
-cardItemImage.addEventListener("click", function (evt) {
-  evt.preventDefault();
-  popupTitleImage.textContent = name;
-  popupCardsImage.src = link;
-  popupCardsImage.alt = name;
-  openPopup(popupImage);
-});
+  //заполнить попап с карточкой
+  cardItemImage.addEventListener("click", function (evt) {
+    evt.preventDefault();
+    popupTitleImage.textContent = name;
+    popupCardsImage.src = link;
+    popupCardsImage.alt = name;
+    openPopup(popupImage);
+  });
 
-//добавить like
-cardItem.querySelector(".cards__heart").addEventListener("click", function (evt) {
-  evt.target.classList.toggle("cards__heart_active");
-});
+  //добавить like
+  cardItem.querySelector(".cards__heart").addEventListener("click", function (evt) {
+    evt.target.classList.toggle("cards__heart_active");
+  });
 
-//удалить карточку
-const buttonDeleteCard = cardItem.querySelector(".cards__delete");
-buttonDeleteCard.addEventListener("click", handleDeleteCard);
+  //удалить карточку
+  const buttonDeleteCard = cardItem.querySelector(".cards__delete");
+  buttonDeleteCard.addEventListener("click", handleDeleteCard);
 
-return cardItem;
+  return cardItem;
 };
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);

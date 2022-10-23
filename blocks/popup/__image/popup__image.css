@@ -4,4 +4,5 @@
   object-fit: cover;
   display: block;
   visibility: visible;
+  position: relative;
 }
