@@ -18,7 +18,7 @@ const cardTemplate = document.querySelector(".template");
 const cardsContainer = document.querySelector(".cards__list");
 
 
-const formAddCard = document.getElementById('place');
+const formAddCard = document.getElementById('form-place');
 const inputNameCard = popupAddCard.querySelector(".popup__info_type_place");
 const inputLinkCard = popupAddCard.querySelector(".popup__info_type_link");
 
@@ -52,7 +52,6 @@ const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const card = createCard(inputNameCard.value, inputLinkCard.value);
   cardsContainer.prepend(card);
-  formAddCard.reset();
   closePopup(popupAddCard);
 };
 
@@ -109,6 +108,7 @@ cardPopupOpenButton.addEventListener("click", () => {
 });
 cardPopupCloseButton.addEventListener("click", () => {
   closePopup(popupAddCard);
+  formAddCard.reset();
 });
 popupImageClose.addEventListener("click", () => {
   closePopup(popupImage)

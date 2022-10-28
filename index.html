@@ -39,12 +39,14 @@
   </footer>
   <section class="popup" id="popup-name">
     <div class="popup__container">
-      <form class="popup__input-info">
+      <form class="popup__input-info" name="profile">
         <button class="popup__close" type="button"></button>
         <div class="popup__content">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input class="popup__info popup__info_type_name" type="text" name="info" placeholder="Имя" value="" required>
-          <input class="popup__info popup__info_type_job" type="text" name="info" placeholder="О себе любимом" value="" required>
+          <input class="popup__info popup__info_type_name" id="name" minlength="2" maxlength="40" type="text" name="info" placeholder="Имя" value="" required>
+          <span class="error" id="name-error"></span>
+          <input class="popup__info popup__info_type_job" id="about" minlength="2" maxlength="200" type="text" name="info" placeholder="О себе любимом" value="" required>
+          <span class="error" id="about-error"></span>
           <button class="popup__save" type="submit">Сохранить</button>
         </div>
       </form>
@@ -52,12 +54,14 @@
   </section>
   <section class="popup popup_add-card" id="popup-place">
     <div class="popup__container">
-      <form class="popup__input-info popup__input-info_add-card" id="place">
+      <form class="popup__input-info popup__input-info_add-card" id="form-place" name="place">
         <button class="popup__close popup__close_add-card" type="button"></button>
         <div class="popup__content">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__info popup__info_type_place" type="text" name="info"  form="place" placeholder="Название" value="" required>
-          <input class="popup__info popup__info_type_link" type="url" name="info" form="place" placeholder="Ссылка на картинку" required>
+          <input class="popup__info popup__info_type_place" id="place" minlength="2" maxlength="30" type="text" name="info"  form="form-place" placeholder="Название" value="" required>
+          <span class="error" id="place-error"></span>
+          <input class="popup__info popup__info_type_link" id="url-place" type="url" name="info" form="form-place" placeholder="Ссылка на картинку" required>
+          <span class="error" id="url-place-error"></span>
           <button class="popup__save" type="submit">Создать</button>
         </div>
       </form>
@@ -81,6 +85,7 @@
     <button class="cards__delete"></button>
   </li>
  </template>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/cards.js"></script>
   <script src="./scripts/index.js"></script>
 </body>
