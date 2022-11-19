@@ -27,12 +27,32 @@ const popupImageClose = popupImage.querySelector(".popup__close_image");
 const popupCardsImage = popupImage.querySelector(".popup__image");
 const popupTitleImage = popupImage.querySelector(".popup__title_image-title");
 
+const closePopupByClickingOn = (evt) => {
+  if (evt.target == evt.currentTarget) {
+    const currentEl = evt.target;
+    currentEl.classList.remove("popup_opened");
+  }
+};
+
+const closePopupByKeyEscape = (evt) => {
+  if (evt.key === "Escape") {
+    const currentEl = document.querySelector(".popup_opened");
+    currentEl.classList.remove("popup_opened");
+  }
+};
+
+
+
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
+  popupElement.addEventListener("click", closePopupByClickingOn);
+  popupElement.addEventListener("keydown", closePopupByKeyEscape);
 };
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove("popup_opened");
+  popupElement.removeEventListener("click", closePopupByClickingOn);
+  popupElement.removeEventListener("keydown", closePopupByKeyEscape);
 };
 
 const handleOpenProfileForm = () => {
@@ -52,6 +72,7 @@ const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const card = createCard(inputNameCard.value, inputLinkCard.value);
   cardsContainer.prepend(card);
+  formAddCard.reset();
   closePopup(popupAddCard);
 };
 
@@ -92,7 +113,6 @@ const createCard = (name, link) => {
   //удалить карточку
   const buttonDeleteCard = cardItem.querySelector(".cards__delete");
   buttonDeleteCard.addEventListener("click", handleDeleteCard);
-
   return cardItem;
 };
 
@@ -110,10 +130,13 @@ cardPopupCloseButton.addEventListener("click", () => {
   closePopup(popupAddCard);
   formAddCard.reset();
 });
+
 popupImageClose.addEventListener("click", () => {
   closePopup(popupImage)
 });
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
+
+document.addEventListener("keydown", closePopupByKeyEscape);
 
 renderInitialCards ();
