@@ -2,8 +2,8 @@ const settings = {
   formSelector: '.popup__input-info',
   inputSelector: '.popup__info',
   submitButtonSelector: '.popup__button',
-  inactiveButtonClass: '.popup__button_disabled',
-  inputErrorClass: '.popup__input_type_error',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
   errorClass: '.popup__error_visible'
 };
 
@@ -52,7 +52,6 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
     buttonElement.classList.add(settings.inactiveButtonClass);
     buttonElement.setAttribute("disabled", true);
   } else {
-    console.log(12)
     buttonElement.classList.remove(settings.inactiveButtonClass);
     buttonElement.removeAttribute("disabled");
   }

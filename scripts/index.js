@@ -17,7 +17,6 @@ const cardPopupCloseButton = document.querySelector(".popup__close_add-card");
 const cardTemplate = document.querySelector(".template");
 const cardsContainer = document.querySelector(".cards__list");
 
-
 const formAddCard = document.getElementById('form-place');
 const inputNameCard = popupAddCard.querySelector(".popup__info_type_place");
 const inputLinkCard = popupAddCard.querySelector(".popup__info_type_link");
@@ -40,8 +39,6 @@ const closePopupByKeyEscape = (evt) => {
     currentEl.classList.remove("popup_opened");
   }
 };
-
-
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");

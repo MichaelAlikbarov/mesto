@@ -9,3 +9,9 @@
   color: #FF0000;
   margin-left: 36px;
 }
+
+@media (max-width: 968px) {
+  .popup__error {
+    margin-left: 22px;
+  }
+}

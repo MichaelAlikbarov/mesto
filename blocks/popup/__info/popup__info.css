@@ -9,9 +9,11 @@
 
   margin-right: 36px;
   margin-left: 36px;
-  border: none;
+  /* border: none; */
   padding-bottom: 13.26px;
-
+  border-top: none;
+  border-right: none;
+  border-left: none;
   border-bottom: 1px solid rgba(0%, 0%, 0%, 0.2);
 }
 
