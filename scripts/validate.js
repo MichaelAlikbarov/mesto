@@ -30,7 +30,7 @@ const hideInputError = (formElement, inputElement, settings) => {
 };
 
 const setEventListeners = (formElement, settings) => {
-  let inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
+  const inputList = Array.from(formElement.querySelectorAll(settings.inputSelector));
   const buttonElement = formElement.querySelector(settings.submitButtonSelector);
   toggleButtonState(inputList, buttonElement, settings);
   inputList.forEach((inputItem) => {

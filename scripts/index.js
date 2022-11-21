@@ -29,26 +29,26 @@ const popupTitleImage = popupImage.querySelector(".popup__title_image-title");
 const closePopupByClickingOn = (evt) => {
   if (evt.target == evt.currentTarget) {
     const currentEl = evt.target;
-    currentEl.classList.remove("popup_opened");
+    closePopup(currentEl);
   }
 };
 
 const closePopupByKeyEscape = (evt) => {
   if (evt.key === "Escape") {
     const currentEl = document.querySelector(".popup_opened");
-    currentEl.classList.remove("popup_opened");
+    closePopup(currentEl);
   }
 };
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
-  popupElement.addEventListener("click", closePopupByClickingOn);
-  popupElement.addEventListener("keydown", closePopupByKeyEscape);
+  popupElement.addEventListener("mousedown", closePopupByClickingOn);
+  document.addEventListener("keydown", closePopupByKeyEscape);
 };
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove("popup_opened");
-  popupElement.removeEventListener("click", closePopupByClickingOn);
+  popupElement.removeEventListener("mousedown", closePopupByClickingOn);
   popupElement.removeEventListener("keydown", closePopupByKeyEscape);
 };
 
@@ -71,6 +71,7 @@ const handleCardFormSubmit = (evt) => {
   cardsContainer.prepend(card);
   formAddCard.reset();
   closePopup(popupAddCard);
+  enableValidation(settings);
 };
 
 const handleDeleteCard = (evt) => {
@@ -85,7 +86,7 @@ const renderInitialCards = () => {
   });
 };
 
-const createCard = (name, link) => {
+function createCard(name, link) {
   const cardItem = cardTemplate.content.cloneNode(true);
   const cardItemName = cardItem.querySelector(".cards__name");
   const cardItemImage = cardItem.querySelector(".cards__foto");
@@ -111,7 +112,7 @@ const createCard = (name, link) => {
   const buttonDeleteCard = cardItem.querySelector(".cards__delete");
   buttonDeleteCard.addEventListener("click", handleDeleteCard);
   return cardItem;
-};
+}
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 
@@ -133,7 +134,5 @@ popupImageClose.addEventListener("click", () => {
 });
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
-
-document.addEventListener("keydown", closePopupByKeyEscape);
 
 renderInitialCards ();
