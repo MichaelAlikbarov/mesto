@@ -20,7 +20,7 @@ const cardsContainer = document.querySelector(".cards__list");
 const formAddCard = document.getElementById('form-place');
 const inputNameCard = popupAddCard.querySelector(".popup__info_type_place");
 const inputLinkCard = popupAddCard.querySelector(".popup__info_type_link");
-const buttonDisabled = formAddCard.querySelector(".popup__button");
+const buttonSubmitCardForm = formAddCard.querySelector(".popup__button");
 
 const popupImage = document.querySelector(".popup_image-open");
 const popupImageClose = popupImage.querySelector(".popup__close_image");
@@ -72,8 +72,8 @@ const handleCardFormSubmit = (evt) => {
   cardsContainer.prepend(card);
   formAddCard.reset();
   closePopup(popupAddCard);
-  buttonDisabled.classList.add("popup__button_disabled");
-  buttonDisabled.setAttribute("disabled", "disabled");
+  buttonSubmitCardForm.classList.add("popup__button_disabled");
+  buttonSubmitCardForm.setAttribute("disabled", "disabled");
 };
 
 const handleDeleteCard = (evt) => {
