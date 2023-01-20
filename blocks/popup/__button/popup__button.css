@@ -16,10 +16,10 @@
   color: #FFFFFF;
 }
 
-.popup__button:hover {
+/* .popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
-}
+} */
 
 @media (max-width: 968px) {
   .popup__button {

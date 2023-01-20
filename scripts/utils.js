@@ -1,20 +1,23 @@
+import {settings} from "./constants.js";
+
+const popupImage = document.querySelector(".popup_image-open");
+const popups = Array.from(document.querySelectorAll('.popup'));
+
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
-  popupElement.addEventListener("mousedown", closePopupByClickingOn);
   document.addEventListener("keydown", closePopupByKeyEscape);
 };
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove("popup_opened");
-  popupElement.removeEventListener("mousedown", closePopupByClickingOn);
-  popupElement.removeEventListener("keydown", closePopupByKeyEscape);
+  document.removeEventListener("keydown", closePopupByKeyEscape);
 };
 
+
 const closePopupByClickingOn = (evt) => {
-  if (evt.target == evt.currentTarget) {
-    const currentEl = evt.target;
-    closePopup(currentEl);
+  if (evt.target === evt.currentTarget) {
   }
+  closePopup(evt.target);
 };
 
 const closePopupByKeyEscape = (evt) => {
@@ -24,13 +27,22 @@ const closePopupByKeyEscape = (evt) => {
   }
 };
 
-const settings = {
-  formSelector: '.popup__input-info',
-  inputSelector: '.popup__info',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: '.popup__error_visible'
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', closePopupByClickingOn)
+});
+
+const disableButton = (buttonItem) => {
+  buttonItem.classList.add(settings.inactiveButtonClass);
+  buttonItem.setAttribute("disabled", true);
+
+  buttonItem.classList.add("popup__button_disabled");
+  buttonItem.setAttribute("disabled", "disabled");
 };
 
-export {settings, openPopup, closePopupByClickingOn, closePopupByKeyEscape, closePopup}
+const enableButton = (buttonItem) => {
+  buttonItem.classList.remove(settings.inactiveButtonClass);
+  buttonItem.removeAttribute("disabled");
+  buttonItem.classList.add(settings.activeButtonClass);
+};
+
+export {openPopup, disableButton, enableButton, popupImage, closePopupByClickingOn, closePopupByKeyEscape, closePopup}

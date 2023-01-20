@@ -1,8 +1,8 @@
 import initialCards from "./cards.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import {settings, openPopup, closePopupByClickingOn, closePopupByKeyEscape, closePopup} from './utils.js'
-
+import {openPopup, closePopup, popupImage, disableButton} from './utils.js';
+import {settings} from "./constants.js";
 
 const popupFormName = document.querySelector("#popup-name");
 const popupAddCard = document.querySelector(".popup_add-card");
@@ -23,20 +23,19 @@ const cardPopupCloseButton = document.querySelector(".popup__close_add-card");
 const cardTemplate = document.querySelector(".template");
 const cardsContainer = document.querySelector(".cards__list");
 
+const formProfile = document.querySelector("#form-profile");
 const formAddCard = document.querySelector('#form-place');
 const inputNameCard = popupAddCard.querySelector(".popup__info_type_place");
 const inputLinkCard = popupAddCard.querySelector(".popup__info_type_link");
 const buttonSubmitCardForm = formAddCard.querySelector(".popup__button");
 
-const popupImage = document.querySelector(".popup_image-open");
 const popupImageClose = popupImage.querySelector(".popup__close_image");
 
 const handleOpenProfileForm = () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   openPopup(popupFormName);
-  const enablevalidation = new FormValidator(settings, popupFormNameElement);
-  enablevalidation.enableValidation(settings)
+
 };
 
 function handleProfileFormSubmit (evt) {
@@ -49,33 +48,49 @@ function handleProfileFormSubmit (evt) {
 const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const inputValue = ({name: inputNameCard.value, link: inputLinkCard.value});
-  const card = new Card(inputValue, cardTemplate);
-  cardsContainer.prepend(card.getVew());
+  cardsContainer.prepend(createCard(inputValue, cardTemplate));
   formAddCard.reset();
   closePopup(popupAddCard);
-  buttonSubmitCardForm.classList.add("popup__button_disabled");
-  buttonSubmitCardForm.setAttribute("disabled", "disabled");
+  disableButton(buttonSubmitCardForm);
 };
 
-const renderInitialCards = () => {
+const createCard = (data, templateSelect) => {
+  const card = new Card (data, templateSelect);
+  return card.getVew()
+};
+
+const renderCards = () => {
   initialCards.forEach((cardData) => {
-    const cardItem = new Card(cardData, cardTemplate);
-    cardsContainer.append(cardItem.getVew());
+    cardsContainer.prepend(createCard(cardData, cardTemplate));
   });
 };
+
+const enableFormValidation = (params) => {
+  const formList = Array.from(document.querySelectorAll(params.formSelector));
+  formList.forEach((formItem) => {
+    const formValidator = new FormValidator(params, formItem);
+    formValidator.enableValidation(formItem);
+  });
+};
+
+enableFormValidation(settings);
+
+const formValidator = new FormValidator(settings, formProfile);
+formValidator.enableValidation(formProfile);
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 
 popupFormNameCloseButton.addEventListener("click", () => {
   closePopup(popupFormName);
 });
+
 popupFormNameElement.addEventListener('submit', handleProfileFormSubmit);
 
 cardPopupOpenButton.addEventListener("click", () => {
   openPopup(popupAddCard);
-  const enablevalidation = new FormValidator(settings, formAddCard);
-  enablevalidation.enableValidation(settings);
+
 });
+
 cardPopupCloseButton.addEventListener("click", () => {
   closePopup(popupAddCard);
   formAddCard.reset();
@@ -87,5 +102,6 @@ popupImageClose.addEventListener("click", () => {
 
 formAddCard.addEventListener('submit', handleCardFormSubmit);
 
-renderInitialCards ();
+renderCards ();
+
 
