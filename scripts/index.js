@@ -75,9 +75,6 @@ const enableFormValidation = (params) => {
 
 enableFormValidation(settings);
 
-const formValidator = new FormValidator(settings, formProfile);
-formValidator.enableValidation(formProfile);
-
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 
 popupFormNameCloseButton.addEventListener("click", () => {
