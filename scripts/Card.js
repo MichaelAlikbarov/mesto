@@ -1,29 +1,27 @@
-import {openPopup, popupImage} from './utils.js'
+import {openPopup, popupImage, popupTitleImage, popupCardsImage} from './utils.js'
 
 class Card {
-  constructor(data, templateSelect) {
+  constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
-    this._templateSelect = templateSelect;
+    this._templateSelector = templateSelector;
   }
 
   _getTemplateCard() {
-    const templateSelect = document
+    const cardItem = document
       .querySelector(".template")
       .content.querySelector(".cards__card")
       .cloneNode(true);
-    return templateSelect;
+    return cardItem;
 
   }
 
   _handleDeleteCard() {
     this._newCard.remove();
+    this._cardItem = null;
   }
 
   _handleOpenPopupCard() {
-    const popupImageOpen = document.querySelector("#popup-image");
-    const popupTitleImage = popupImageOpen.querySelector(".popup__title_image-title");
-    const popupCardsImage = popupImageOpen.querySelector(".popup__image");
     popupTitleImage.textContent = this._name;
     popupCardsImage.src = this._link;
     popupCardsImage.alt = this._name;

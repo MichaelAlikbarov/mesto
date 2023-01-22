@@ -1,7 +1,7 @@
 import initialCards from "./cards.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-import {openPopup, closePopup, popupImage, disableButton} from './utils.js';
+import {openPopup, closePopup, popupImage} from './utils.js';
 import {settings} from "./constants.js";
 
 const popupFormName = document.querySelector("#popup-name");
@@ -51,11 +51,10 @@ const handleCardFormSubmit = (evt) => {
   cardsContainer.prepend(createCard(inputValue, cardTemplate));
   formAddCard.reset();
   closePopup(popupAddCard);
-  disableButton(buttonSubmitCardForm);
 };
 
-const createCard = (data, templateSelect) => {
-  const card = new Card (data, templateSelect);
+const createCard = (data, templateSelector) => {
+  const card = new Card (data, templateSelector);
   return card.getVew()
 };
 
@@ -65,15 +64,20 @@ const renderCards = () => {
   });
 };
 
-const enableFormValidation = (params) => {
-  const formList = Array.from(document.querySelectorAll(params.formSelector));
-  formList.forEach((formItem) => {
-    const formValidator = new FormValidator(params, formItem);
-    formValidator.enableValidation(formItem);
-  });
-};
+// const enableFormValidation = (params) => {
+//   const formList = Array.from(document.querySelectorAll(params.formSelector));
+//   formList.forEach((formItem) => {
+//     const formValidator = new FormValidator(params, formItem);
+//     formValidator.enableValidation(formItem);
+//   });
+// };
 
-enableFormValidation(settings);
+// enableFormValidation(settings);
+
+const formValidatorProfile = new FormValidator(settings, formProfile);
+formValidatorProfile.enableValidation(formProfile);
+const formValidatorCard = new FormValidator(settings, formAddCard);
+formValidatorCard.enableValidation(formAddCard);
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 
@@ -85,7 +89,7 @@ popupFormNameElement.addEventListener('submit', handleProfileFormSubmit);
 
 cardPopupOpenButton.addEventListener("click", () => {
   openPopup(popupAddCard);
-
+  formValidatorCard.disableButton(buttonSubmitCardForm);
 });
 
 cardPopupCloseButton.addEventListener("click", () => {

@@ -1,7 +1,10 @@
-import {settings} from "./constants.js";
+// import {settings} from "./constants.js";
 
 const popupImage = document.querySelector(".popup_image-open");
 const popups = Array.from(document.querySelectorAll('.popup'));
+const popupImageOpen = document.querySelector("#popup-image");
+const popupTitleImage = popupImageOpen.querySelector(".popup__title_image-title");
+const popupCardsImage = popupImageOpen.querySelector(".popup__image");
 
 const openPopup = (popupElement) => {
   popupElement.classList.add("popup_opened");
@@ -31,18 +34,21 @@ popups.forEach((popup) => {
   popup.addEventListener('mousedown', closePopupByClickingOn)
 });
 
-const disableButton = (buttonItem) => {
-  buttonItem.classList.add(settings.inactiveButtonClass);
-  buttonItem.setAttribute("disabled", true);
+// const disableButton = (buttonItem) => {
+//   buttonItem.classList.add(settings.inactiveButtonClass);
+//   buttonItem.setAttribute("disabled", true);
 
-  buttonItem.classList.add("popup__button_disabled");
-  buttonItem.setAttribute("disabled", "disabled");
-};
+//   buttonItem.classList.add("popup__button_disabled");
+//   buttonItem.setAttribute("disabled", "disabled");
+// };
 
-const enableButton = (buttonItem) => {
-  buttonItem.classList.remove(settings.inactiveButtonClass);
-  buttonItem.removeAttribute("disabled");
-  buttonItem.classList.add(settings.activeButtonClass);
-};
+// const enableButton = (buttonItem) => {
+//   buttonItem.classList.remove(settings.inactiveButtonClass);
+//   buttonItem.removeAttribute("disabled");
+//   buttonItem.classList.add(settings.activeButtonClass);
+// };
 
-export {openPopup, disableButton, enableButton, popupImage, closePopupByClickingOn, closePopupByKeyEscape, closePopup}
+export {
+  openPopup, popupImage, closePopupByClickingOn,
+  closePopupByKeyEscape, closePopup, popupTitleImage, popupCardsImage,
+      }
