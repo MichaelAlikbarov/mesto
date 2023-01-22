@@ -36,9 +36,9 @@ class FormValidator {
     errorElement.textContent = '';
   }
 
-  _setEventListeners(formItem) {
-    this._inputList = Array.from(formItem.querySelectorAll(this._inputSelector));
-    this._buttonElement = formItem.querySelector(this._submitButtonSelector);
+  _setEventListeners() {
+    this._inputList = Array.from(this._formItem.querySelectorAll(this._inputSelector));
+    this._buttonElement = this._formItem.querySelector(this._submitButtonSelector);
 
     this._toggleButtonState(this._buttonElement, this._inputList);
     this._inputList.forEach((inputItem) => {
@@ -49,34 +49,34 @@ class FormValidator {
     });
   }
 
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputItem) => {
+  _hasInvalidInput() {
+    return this._inputList.some((inputItem) => {
       return !inputItem.validity.valid;
     })
   }
 
-  disableButton(buttonElement) {
-    buttonElement.classList.add(this._inactiveButtonClass);
-    buttonElement.setAttribute("disabled", true);
-    buttonElement.classList.remove(this._activeButtonClass);
+  disableButton() {
+    this._buttonElement.classList.add(this._inactiveButtonClass);
+    this._buttonElement.setAttribute("disabled", true);
+    this._buttonElement.classList.remove(this._activeButtonClass);
   };
 
-  _enableButton = (buttonItem) => {
-    buttonItem.classList.remove(this._inactiveButtonClass);
-    buttonItem.removeAttribute("disabled");
-    buttonItem.classList.add(this._activeButtonClass);
+  _enableButton = () => {
+    this._buttonElement.classList.remove(this._inactiveButtonClass);
+    this._buttonElement.removeAttribute("disabled");
+    this._buttonElement.classList.add(this._activeButtonClass);
   };
 
-  _toggleButtonState = (buttonElement, inputList) => {
-    if (this._hasInvalidInput(inputList)) {
-    this.disableButton(buttonElement)
+  _toggleButtonState = () => {
+    if (this._hasInvalidInput(this._inputList)) {
+    this.disableButton(this._buttonElement)
     } else {
-      this._enableButton(buttonElement)
+      this._enableButton(this._buttonElement)
     }
   }
 
-  enableValidation(formItem) {
-    this._setEventListeners(formItem)
+  enableValidation() {
+    this._setEventListeners()
     return this._newFormValidator
   }
 }
