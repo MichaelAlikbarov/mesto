@@ -55,9 +55,10 @@ class FormValidator {
     })
   }
 
-  disableButton(buttonItem) {
-    buttonItem.classList.add(this._inactiveButtonClass);
-    buttonItem.setAttribute("disabled", true);
+  disableButton(buttonElement) {
+    buttonElement.classList.add(this._inactiveButtonClass);
+    buttonElement.setAttribute("disabled", true);
+    buttonElement.classList.remove(this._activeButtonClass);
   };
 
   _enableButton = (buttonItem) => {
