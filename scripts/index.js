@@ -27,7 +27,6 @@ const formProfile = document.querySelector("#form-profile");
 const formAddCard = document.querySelector('#form-place');
 const inputNameCard = popupAddCard.querySelector(".popup__info_type_place");
 const inputLinkCard = popupAddCard.querySelector(".popup__info_type_link");
-const buttonSubmitCardForm = formAddCard.querySelector(".popup__button");
 
 const popupImageClose = popupImage.querySelector(".popup__close_image");
 
@@ -89,7 +88,7 @@ popupFormNameElement.addEventListener('submit', handleProfileFormSubmit);
 
 cardPopupOpenButton.addEventListener("click", () => {
   openPopup(popupAddCard);
-  formValidatorCard.disableButton(buttonSubmitCardForm);
+  formValidatorCard.disableButton();
 });
 
 cardPopupCloseButton.addEventListener("click", () => {
