@@ -7,8 +7,7 @@ class Card {
   }
 
   _getTemplateCard() {
-    const cardItem = document
-      .querySelector(".template")
+    const cardItem = this._templateSelector
       .content.querySelector(".cards__card")
       .cloneNode(true);
     return cardItem;
@@ -17,21 +16,19 @@ class Card {
 
   _handleDeleteCard() {
     this._newCard.remove();
-    this._cardItem = null;
+    this._newCard = null;
+  }
+
+  _handleLikeCard(evt) {
+    evt.target.classList.toggle("cards__heart_active");
   }
 
   _setEventListeners() {
-    this._buttonDeleteCard = this._newCard.querySelector(".cards__delete");
-    this._buttonDeleteCard.addEventListener("click", () => this._handleDeleteCard());
+    this._newCard.querySelector(".cards__delete").addEventListener("click", () => this._handleDeleteCard());
 
-    this._newCard.querySelector(".cards__heart").addEventListener("click", function (evt) {
-    evt.target.classList.toggle("cards__heart_active");
-    });
+    this._newCard.querySelector(".cards__heart").addEventListener("click", this._handleLikeCard)
 
-    this._cardImage.addEventListener("click", (evt) => {
-      evt.preventDefault();
-      this._handleCardClick();
-    })
+    this._cardImage.addEventListener("click", () => this._handleCardClick());
   }
 
   _setData() {
@@ -41,7 +38,7 @@ class Card {
     this._cardImage.alt = this._name;
   }
 
-  getVew() {
+  getView() {
     this._newCard = this._getTemplateCard();
     this._cardImage = this._newCard.querySelector(".cards__foto");
     this._setEventListeners();

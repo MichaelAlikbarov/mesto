@@ -1,9 +1,9 @@
-import {popupTitleImage, popupCardsImage} from "../utils/utils.js"
+import {popupTitleImage, popupCardsImage} from "../utils/constants.js"
 import Popup from "./Popup.js";
 
 export default class PopupWithImage extends Popup {
-  constructor (popupSelector) {
-    super(popupSelector);
+  constructor (popup) {
+    super(popup);
   }
 
   openImage(name, link) {
@@ -12,5 +12,5 @@ export default class PopupWithImage extends Popup {
     popupTitleImage.textContent = name;
     popupCardsImage.src = link;
     popupCardsImage.alt = name;
-    }
+  }
 }
