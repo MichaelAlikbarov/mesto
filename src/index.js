@@ -21,8 +21,10 @@ import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
 
 const popupCardImageOpen = new PopupWithImage(popupImageOpen);
-console.log(popupCardImageOpen)
-const userInfo = new UserInfo({});
+const userInfo = new UserInfo({
+  userNameSelector: '.profile__title',
+  userDescriptionSelector: '.profile__subtitle',
+});
 
 const createCard = (data, cardTemplate) => {
   const card = new Card (data, cardTemplate,
