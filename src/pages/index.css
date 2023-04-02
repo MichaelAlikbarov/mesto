@@ -27,6 +27,13 @@
 @import url(../blocks/cards/__name/cards__name.css);
 @import url(../blocks/cards/__place/cards__place.css);
 @import url(../blocks/cards/__delete/cards__delete.css);
+@import url(../blocks/cards/__quantity-like/cards__quantity-like.css);
+@import url(../blocks/cards/__heart-container/cards__heart-container.css);
+
+@import url(../blocks/popup-delete-card/popup-delete-card.css);
+@import url(../blocks/popup-delete-card/__button/popup-delete-card__button.css);
+@import url(../blocks/popup-delete-card/__subtitle/popup-delete-card__subtitle.css);
+@import url(../blocks/popup-delete-card/__title/popup-delete-card__title.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
