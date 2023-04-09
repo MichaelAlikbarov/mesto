@@ -11,12 +11,14 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar-container/profile__avatar-container.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar-edit/profile__avatar-edit.css);
 @import url(../blocks/profile/__text-container/profile__text-container.css);
 @import url(../blocks/profile/__title-container/profile__title-container.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__open-popup/profile__open-popup.css);
+@import url(../blocks/profile/__avatar-overlay/profile__avatar-overlay.css);
 
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/cards/__list/cards__list.css);
@@ -34,6 +36,13 @@
 @import url(../blocks/popup-delete-card/__button/popup-delete-card__button.css);
 @import url(../blocks/popup-delete-card/__subtitle/popup-delete-card__subtitle.css);
 @import url(../blocks/popup-delete-card/__title/popup-delete-card__title.css);
+
+@import url(../blocks/popup-edit-avatar/__button/popup-edite-avatar__button.css);
+@import url(../blocks/popup-edit-avatar/popup-edit-avatar.css);
+@import url(../blocks/popup-edit-avatar/__subtitle/popup-edit-avatar__subtitle.css);
+@import url(../blocks/popup-edit-avatar/__title/popup-edit-avatar__title.css);
+@import url(../blocks/popup-edit-avatar/__form/popup-edit-avatar__form.css);
+@import url(../blocks/popup-edit-avatar/__input/popup-edit-avatar__input.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
@@ -62,3 +71,4 @@
 @import url(../blocks/popup/__button/_disabled/popup__button_disabled.css);
 @import url(../blocks/popup/__button/_enable/popup__button_enable.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_error.css);
+@import url(../blocks/popup/__button-text/popup__button-text.css);

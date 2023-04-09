@@ -21,10 +21,12 @@ const formAddCard = document.querySelector('#form-place');
 const popupImage = document.querySelector(".popup_image-open");
 const popupImageOpen = document.querySelector("#popup-image");
 const popupDeleteCard = document.querySelector("#popup-delete-card");
+const popupEditAvatar = document.querySelector("#popup-edit-avatar")
 
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
-const avatar = document.querySelector('.profile__avatar-container');
+const avatar = document.querySelector('.profile__avatar');
+const openPopupEditAvatar = document.querySelector('.profile__avatar-overlay');
 export {
   validationConfig,
   popupFormName,
@@ -42,4 +44,6 @@ export {
   profileSubtitle,
   avatar,
   popupDeleteCard,
+  popupEditAvatar,
+  openPopupEditAvatar,
 }

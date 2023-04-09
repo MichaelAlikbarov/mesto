@@ -1,5 +1,5 @@
 class Card {
-  constructor(data, templateSelector, userId, {handleCardClick, handleDeleteCardButtonClick,}) {
+  constructor(data, templateSelector, userId, {handleCardClick, handleDeleteCardButtonClick, handleLikeCard}) {
     this._name = data.name;
     this._link = data.link;
     this._likes = data.likes;
@@ -9,6 +9,7 @@ class Card {
     this._templateSelector = templateSelector;
     this._handleCardClick = handleCardClick;
     this._handleDeleteCardButtonClick = handleDeleteCardButtonClick;
+    this._handleLikeCard = handleLikeCard;
   }
 
   _getTemplateCard() {
@@ -18,28 +19,12 @@ class Card {
     return cardItem;
   }
 
-  addLike() {
-    // evt.target.classList.add("cards__heart_active");
-    console.log(123)
-  }
-
-  _handleLikeCard() {
-    // evt.target.classList.toggle("cards__heart_active");
-    const myLike = false;
-    // if (myLike == true) {
-    //   this.deleteLike()
-    // }
-    this.addLike()
-    console.log("test")
-
-  }
-
   _setEventListeners() {
     this._newCard.querySelector(".cards__delete")
     .addEventListener("click", () => this._handleDeleteCardButtonClick(this));
 
     this._newCard.querySelector(".cards__heart")
-    .addEventListener("click", this._handleLikeCard)
+    .addEventListener("click", () => this._handleLikeCard(this))
 
     this._cardImage.addEventListener("click", () => this._handleCardClick());
   }
@@ -56,18 +41,18 @@ class Card {
     this._cardImage = this._newCard.querySelector(".cards__foto");
     this._setEventListeners();
     this._setData();
-    this._calculateLikes();
+    this.calculateLikes(this._likes);
     this._showDeleteIcon();
+    this._likeToogle();
     return this._newCard;
   }
 
-  //сделать счетчик лайков
-  _calculateLikes() {
+  calculateLikes(likes) {
+    this._likes = likes;
     const quantityLikes = this._newCard.querySelector(".cards__quantity-like");
     quantityLikes.textContent = this._likes.length;
   };
 
-  //убрать иконку делит с чужих карточек
   _showDeleteIcon() {
     if (this._userId !== this._ownerId) {
       const itemDeleteIcon = this._newCard.querySelector(".cards__delete")
@@ -80,9 +65,21 @@ class Card {
     this._newCard = null;
   }
 
-  // deleteLike() {
-  //   evt.target.classList.remove("cards__heart_active");
-  // }
+  addLike() {
+    this._newCard.querySelector(".cards__heart")
+    .classList.add("cards__heart_active");
+  }
+
+  deleteLike() {
+    this._newCard.querySelector(".cards__heart")
+    .classList.remove("cards__heart_active");
+  }
+
+  _likeToogle() {
+    if (this._likes.find((item) => item._id === this._userId)) {
+      this.addLike()
+    }
+  }
 }
 
 export default Card;

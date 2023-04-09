@@ -4,6 +4,12 @@
   display: flex;
   margin-left: -22.5px;
   margin-right: 3.75px;
+  position: relative;
+}
+
+.profile__avatar-container:hover .profile__avatar-overlay {
+  opacity: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 320px) {

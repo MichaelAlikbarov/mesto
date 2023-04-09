@@ -19,6 +19,8 @@ import {
   profileTitle,
   avatar,
   popupDeleteCard,
+  popupEditAvatar,
+  openPopupEditAvatar,
 } from "./utils/constants.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
@@ -35,27 +37,40 @@ const api = new Api({
 
 let userId = null;
 
-api.getUserInfo()
-  .then((dataUser) => {
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([dataUser, dataCards]) => {
     profileTitle.textContent = dataUser.name;
     profileSubtitle.textContent = dataUser.about;
     avatar.src = dataUser.avatar;
     userId = dataUser._id;
-  })
-  .catch(api.handleError)
 
-api.getInitialCards()
-  .then((dataCards) => {
-      cardSection.renderItems(dataCards);
+    cardSection.renderItems(dataCards);
   })
   .catch(api.handleError)
 
 const openPopupDeleteCard = new PopupWithConfirmation(popupDeleteCard);
 
+const popapWithEditAvatar = new PopupWithForm(popupEditAvatar, {
+  handleFormSubmit: (data) => {
+    let avatarNew = data[""];
+    popapWithEditAvatar.renderLoading(true)
+    api.updateAvatar(avatarNew)
+      .then((res) => {
+        avatarNew = res.avatar;
+        userInfo.setAvatarInfo(avatarNew)
+      })
+      .catch(api.handleError)
+      .finally(() => {
+        popapWithEditAvatar.renderLoading(false)
+      })
+  }
+});
+
 const popupCardImageOpen = new PopupWithImage(popupImageOpen);
 const userInfo = new UserInfo({
   userNameSelector: '.profile__title',
   userDescriptionSelector: '.profile__subtitle',
+  userAvatarSelector: '.profile__avatar',
 });
 
 const createCard = (data, cardTemplate) => {
@@ -75,23 +90,24 @@ const createCard = (data, cardTemplate) => {
           .catch(api.handleError)
         })
       },
-      addlike: () => {
-        api.addLike(data._id)
-        .then(() => {
-          data.addLike()
-          console.log(data)
-        })
-        .catch(api.handleError)
-      },
-      deleteLike: () => {
-        api.deleteLike(data._id)
-        .then(() => {
-          data.deleteLike()
-        })
-        .catch(api.handleError)
+      handleLikeCard: () => {
+        if (card._likes.find((item) => item._id === userId)) {
+          api.deleteLike(card._id)
+          .then((res) => {
+            card.deleteLike();
+            card.calculateLikes(res.likes);
+          })
+          .catch(api.handleError)
+        } else {
+          api.addLike(card._id)
+          .then((res) => {
+          card.addLike();
+          card.calculateLikes(res.likes)
+          })
+          .catch(api.handleError)
+        }
       }
-    },
-    () => {},
+    }
     );
   return card.getView()
 };
@@ -106,22 +122,30 @@ const cardSection = new Section ({
 
 const popupFormPlace = new PopupWithForm(popupAddCard, {
   handleFormSubmit: (data) => {
+    popupFormPlace.renderLoading(true)
     api.addNewCard(data)
     .then((data) => {
       cardSection.addItem(createCard(data, cardTemplate));
     })
     .catch(api.handleError)
+    .finally(() => {
+      popupFormPlace.renderLoading(false);
+    });
   }
 });
 
 const popupFormProfile = new PopupWithForm(popupFormName, {
   handleFormSubmit: () => {
     userInfo.setUserInfo(nameInput.value, jobInput.value);
+    popupFormProfile.renderLoading(true)
     api.editProfileInfo({
       name: nameInput.value,
-      about: jobInput.value
+      about: jobInput.value,
     })
     .catch(api.handleError)
+    .finally(() => {
+      popupFormProfile.renderLoading(false);
+    });
   }
 });
 
@@ -129,6 +153,7 @@ popupFormPlace.setEventListener();
 popupFormProfile.setEventListener();
 popupCardImageOpen.setEventListeners();
 openPopupDeleteCard.setEventListeners();
+popapWithEditAvatar.setEventListener();
 
 const handleOpenProfileForm = () => {
   const userData = userInfo.getUserInfo()
@@ -149,3 +174,4 @@ cardPopupOpenButton.addEventListener("click", () => {
   formValidatorCard.disableButton();
 });
 
+openPopupEditAvatar.addEventListener("click", () => popapWithEditAvatar.open())

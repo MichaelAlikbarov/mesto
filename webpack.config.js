@@ -12,6 +12,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '',
   },
+
+  devtool: "source-map",
+
   devServer: {
     static: {
       directory: path.resolve(__dirname, 'dist')

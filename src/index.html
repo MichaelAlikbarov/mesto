@@ -15,7 +15,12 @@
   </header>
   <main class="content">
     <section class="profile">
-      <img class="profile__avatar profile__avatar-container" src="./images/jakiv.jpg" alt="фото-аватар">
+      <div class="profile__avatar-container">
+        <img class="profile__avatar" src="./images/jakiv.jpg" alt="фото-аватар">
+        <div class="profile__avatar-overlay">
+          <img class="profile__avatar-edit" src="./images/VectorEdit.svg" alt="значок редактировать">
+        </div>
+      </div>
       <div class="profile__text-container">
         <div class="profile__title-container">
           <h1 class="profile__title"></h1>
@@ -47,7 +52,9 @@
           <span class="popup__error name-error" id="name-error"></span>
           <input class="popup__info popup__info_type_job" id="about" minlength="2" maxlength="200" type="text" name="jobInput" placeholder="О себе любимом" required>
           <span class="popup__error about-error" id="about-error"></span>
-          <button class="popup__button" type="submit">Сохранить</button>
+          <button class="popup__button" type="submit">
+            <p class="popup__button-text">Сохранить</p>
+          </button>
         </div>
       </form>
     </div>
@@ -62,7 +69,9 @@
           <span class="popup__error place-error" id="place-error"></span>
           <input class="popup__info popup__info_type_link" id="url-place" type="url" name="link" form="form-place" placeholder="Ссылка на картинку" required>
           <span class="popup__error url-place-error" id="url-place-error"></span>
-          <button class="popup__button" type="submit">Создать</button>
+          <button class="popup__button" type="submit">
+            <p class="popup__button-text">Создать</p>
+          </button>
         </div>
       </form>
     </div>
@@ -83,6 +92,19 @@
         <button class="popup-delete-card__button" type="button">
           <p class="popup-delete-card__subtitle">Да</p>
         </button>
+    </div>
+  </section>
+  <!-- попап редактировать аватар -->
+  <section class="popup" id="popup-edit-avatar">
+    <div class="popup-edit-avatar">
+        <button class="popup__close"></button>
+        <h2 class="popup-edit-avatar__title">Обновить аватар?</h2>
+        <form class="popup__input-info popup-edit-avatar__form">
+          <input class="popup__info popup-edit-avatar__input" type="url" placeholder="Введите URL" required>
+          <button class="popup-edit-avatar__button" type="submit">
+            <p class="popup__button-text popup-edit-avatar__subtitle">Сохранить</p>
+          </button>
+        </form>
     </div>
   </section>
  <template class="template">
