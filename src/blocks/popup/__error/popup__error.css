@@ -8,6 +8,7 @@
   line-height: 1.25;
   color: #FF0000;
   margin-left: 36px;
+  padding: 0;
 }
 
 @media (max-width: 968px) {

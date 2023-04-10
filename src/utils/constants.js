@@ -17,6 +17,7 @@ const cardPopupOpenButton = document.querySelector(".profile__button");
 const cardTemplate = document.querySelector(".template");
 const formProfile = document.querySelector("#form-profile");
 const formAddCard = document.querySelector('#form-place');
+const formEditAvatar = document.querySelector('#form-edit-avatar')
 
 const popupImage = document.querySelector(".popup_image-open");
 const popupImageOpen = document.querySelector("#popup-image");
@@ -46,4 +47,5 @@ export {
   popupDeleteCard,
   popupEditAvatar,
   openPopupEditAvatar,
+  formEditAvatar,
 }

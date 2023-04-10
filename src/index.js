@@ -21,6 +21,7 @@ import {
   popupDeleteCard,
   popupEditAvatar,
   openPopupEditAvatar,
+  formEditAvatar,
 } from "./utils/constants.js";
 import Section from "./components/Section.js";
 import UserInfo from "./components/UserInfo.js";
@@ -52,12 +53,12 @@ const openPopupDeleteCard = new PopupWithConfirmation(popupDeleteCard);
 
 const popapWithEditAvatar = new PopupWithForm(popupEditAvatar, {
   handleFormSubmit: (data) => {
-    let avatarNew = data[""];
     popapWithEditAvatar.renderLoading(true)
-    api.updateAvatar(avatarNew)
-      .then((res) => {
-        avatarNew = res.avatar;
-        userInfo.setAvatarInfo(avatarNew)
+    const res = data.name;
+    api.updateAvatar(res)
+      .then(() => {
+        userInfo.setAvatarInfo(res);
+        popapWithEditAvatar.close()
       })
       .catch(api.handleError)
       .finally(() => {
@@ -126,6 +127,7 @@ const popupFormPlace = new PopupWithForm(popupAddCard, {
     api.addNewCard(data)
     .then((data) => {
       cardSection.addItem(createCard(data, cardTemplate));
+      popupFormPlace.close();
     })
     .catch(api.handleError)
     .finally(() => {
@@ -141,6 +143,9 @@ const popupFormProfile = new PopupWithForm(popupFormName, {
     api.editProfileInfo({
       name: nameInput.value,
       about: jobInput.value,
+    })
+    .then(() => {
+      popupFormProfile.close();
     })
     .catch(api.handleError)
     .finally(() => {
@@ -166,6 +171,8 @@ const formValidatorProfile = new FormValidator(validationConfig, formProfile);
 formValidatorProfile.enableValidation(formProfile);
 const formValidatorCard = new FormValidator(validationConfig, formAddCard);
 formValidatorCard.enableValidation(formAddCard);
+const formVlidatorEditAvatar = new FormValidator(validationConfig, popupEditAvatar);
+formVlidatorEditAvatar.enableValidation(formEditAvatar);
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 

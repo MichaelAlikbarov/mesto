@@ -76,6 +76,14 @@
       </form>
     </div>
   </section>
+  <!-- проработать попапы -->
+  <section class="popup popup-add-card popap_opened" id="">
+    <div>
+      <form class="">
+
+      </form>
+    </div>
+  </section>
   <!-- попап для картинки -->
   <section class="popup popup_image-open" id="popup-image">
       <figure class="popup__container popup__container_image">
@@ -99,9 +107,10 @@
     <div class="popup-edit-avatar">
         <button class="popup__close"></button>
         <h2 class="popup-edit-avatar__title">Обновить аватар?</h2>
-        <form class="popup__input-info popup-edit-avatar__form">
-          <input class="popup__info popup-edit-avatar__input" type="url" placeholder="Введите URL" required>
-          <button class="popup-edit-avatar__button" type="submit">
+        <form class="popup__input-info popup-edit-avatar__form" id="form-edit-avatar">
+          <input class="popup__info popup-edit-avatar__input" id="url-avatar" type="url" name="name" placeholder="Введите URL" required>
+          <span class="popup__error url-avatar-error" id="url-avatar-error"></span>
+          <button class="popup-edit-avatar__button popup__button" type="submit">
             <p class="popup__button-text popup-edit-avatar__subtitle">Сохранить</p>
           </button>
         </form>

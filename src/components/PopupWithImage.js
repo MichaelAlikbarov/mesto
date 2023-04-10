@@ -3,8 +3,6 @@ import Popup from "./Popup.js";
 export default class PopupWithImage extends Popup {
   constructor (popup) {
     super(popup);
-    this._popupTitleImage = document.querySelector('.popup__title_image-title');
-    this._popupCardsImage = document.querySelector('.popup__image');
   }
 
   openImage(name, link) {

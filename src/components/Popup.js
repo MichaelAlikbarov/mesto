@@ -1,6 +1,8 @@
 export default class Popup {
   constructor(popup) {
     this._popup = popup;
+    this._popupTitleImage = document.querySelector('.popup__title_image-title');
+    this._popupCardsImage = document.querySelector('.popup__image');
   }
 
   open() {

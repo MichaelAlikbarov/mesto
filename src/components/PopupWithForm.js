@@ -6,6 +6,7 @@ export default class PopupWithForm extends Popup {
     this._inputList = this._popup.querySelectorAll('.popup__info');
     this._popupInputInfo = this._popup.querySelector('.popup__input-info');
     this._popupButton = this._popup.querySelector('.popup__button-text');
+    this._popupButtonText = this._popupButton.textContent;
     this._handleFormSubmit = handleFormSubmit;
   }
 
@@ -13,7 +14,7 @@ export default class PopupWithForm extends Popup {
     //собрать данные всех полей формы и вернуть объект
     this._formValue = {};
     this._inputList.forEach((inputItem) => {
-      this._formValue[inputItem.name] = inputItem.value;
+    this._formValue[inputItem.name] = inputItem.value;
     });
     return this._formValue;
   }
@@ -24,7 +25,7 @@ export default class PopupWithForm extends Popup {
     this._popup.addEventListener('submit', (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      this.close();
+      // this.close();
     });
   }
 
@@ -39,7 +40,7 @@ export default class PopupWithForm extends Popup {
       this._popupButton.textContent = 'Сохранение...';
     }
     else {
-      this._popupButton.textContent = this._popupButton.textContent;
+      this._popupButton.textContent = this._popupButtonText;
     }
   };
 }
