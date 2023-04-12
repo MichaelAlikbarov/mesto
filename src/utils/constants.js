@@ -27,7 +27,7 @@ const popupEditAvatar = document.querySelector("#popup-edit-avatar")
 const profileTitle = document.querySelector(".profile__title");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const avatar = document.querySelector('.profile__avatar');
-const openPopupEditAvatar = document.querySelector('.profile__avatar-overlay');
+const openPopupEditAvatar = document.querySelector('.profile__avatar-container');
 export {
   validationConfig,
   popupFormName,

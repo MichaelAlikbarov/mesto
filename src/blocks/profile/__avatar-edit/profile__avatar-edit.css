@@ -1,5 +1,4 @@
 .profile__avatar-edit {
-  margin: 0;
-  width: 26px;
-  height: 26px;
+  width: 100%;
+  height: auto;
 }

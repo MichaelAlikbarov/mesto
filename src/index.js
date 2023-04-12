@@ -181,4 +181,9 @@ cardPopupOpenButton.addEventListener("click", () => {
   formValidatorCard.disableButton();
 });
 
-openPopupEditAvatar.addEventListener("click", () => popapWithEditAvatar.open())
+openPopupEditAvatar.addEventListener("click", (evt) => {
+  if (evt.target) {
+    popapWithEditAvatar.open()
+    formValidatorCard.disableButton();
+  }
+});

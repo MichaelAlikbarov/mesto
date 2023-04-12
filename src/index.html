@@ -15,16 +15,16 @@
   </header>
   <main class="content">
     <section class="profile">
-      <div class="profile__avatar-container">
-        <img class="profile__avatar" src="./images/jakiv.jpg" alt="фото-аватар">
+      <button class="profile__avatar-container" type="button">
+        <img class="profile__avatar" src="#" alt="фото-аватар">
         <div class="profile__avatar-overlay">
           <img class="profile__avatar-edit" src="./images/VectorEdit.svg" alt="значок редактировать">
         </div>
-      </div>
+      </button>
       <div class="profile__text-container">
         <div class="profile__title-container">
           <h1 class="profile__title"></h1>
-          <button class="profile__open-popup" type="button">
+          <button class="profile__open-popup">
             <img src="./images/button_change.svg" alt="кнопка для ввода иформации">
           </button>
         </div>
@@ -76,14 +76,6 @@
       </form>
     </div>
   </section>
-  <!-- проработать попапы -->
-  <section class="popup popup-add-card popap_opened" id="">
-    <div>
-      <form class="">
-
-      </form>
-    </div>
-  </section>
   <!-- попап для картинки -->
   <section class="popup popup_image-open" id="popup-image">
       <figure class="popup__container popup__container_image">
@@ -110,7 +102,7 @@
         <form class="popup__input-info popup-edit-avatar__form" id="form-edit-avatar">
           <input class="popup__info popup-edit-avatar__input" id="url-avatar" type="url" name="name" placeholder="Введите URL" required>
           <span class="popup__error url-avatar-error" id="url-avatar-error"></span>
-          <button class="popup-edit-avatar__button popup__button" type="submit">
+          <button class="popup__button popup-edit-avatar__button" type="submit">
             <p class="popup__button-text popup-edit-avatar__subtitle">Сохранить</p>
           </button>
         </form>

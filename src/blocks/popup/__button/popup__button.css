@@ -1,12 +1,10 @@
-/* .popup__button {
+.popup__button {
   width: 358px;
   height: 50.15px;
   border: none;
   background: #000000;
   border-radius: 2px;
-
-  margin: 48px 36px 0px;
-
+  margin: 48px 36px;
   font-family: 'Inter';
   font-style: normal;
   font-weight: 400;
@@ -16,10 +14,10 @@
   color: #FFFFFF;
 }
 
-/* .popup__button:hover {
+.popup__button:hover {
   opacity: 0.8;
   cursor: pointer;
-} */
+}
 
 @media (max-width: 968px) {
   .popup__button {
