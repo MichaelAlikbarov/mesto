@@ -164,7 +164,8 @@ const handleOpenProfileForm = () => {
   const userData = userInfo.getUserInfo()
   nameInput.value = userData.userName;
   jobInput.value = userData.userDescription;
-  popupFormProfile.open()
+  popupFormProfile.open();
+  formValidatorProfile.disableButton()
 };
 
 const formValidatorProfile = new FormValidator(validationConfig, formProfile);
