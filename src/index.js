@@ -171,8 +171,8 @@ const formValidatorProfile = new FormValidator(validationConfig, formProfile);
 formValidatorProfile.enableValidation(formProfile);
 const formValidatorCard = new FormValidator(validationConfig, formAddCard);
 formValidatorCard.enableValidation(formAddCard);
-const formVlidatorEditAvatar = new FormValidator(validationConfig, popupEditAvatar);
-formVlidatorEditAvatar.enableValidation(formEditAvatar);
+const formValidatorEditAvatar = new FormValidator(validationConfig, popupEditAvatar);
+formValidatorEditAvatar.enableValidation(formEditAvatar);
 
 popupFormNameOpenButton.addEventListener("click", handleOpenProfileForm);
 
