@@ -42,7 +42,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([dataUser, dataCards]) => {
     profileTitle.textContent = dataUser.name;
     profileSubtitle.textContent = dataUser.about;
-    avatar.src = dataUser.avatar;
+    userInfo.setAvatarInfo(dataUser.avatar);
     userId = dataUser._id;
 
     cardSection.renderItems(dataCards);
