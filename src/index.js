@@ -54,8 +54,8 @@ const popapWithEditAvatar = new PopupWithForm(popupEditAvatar, {
   handleFormSubmit: (data) => {
     popapWithEditAvatar.renderLoading(true)
     api.updateAvatar(data.name)
-      .then(() => {
-        userInfo.setAvatarInfo(data.name);
+      .then((res) => {
+        userInfo.setAvatarInfo(res.avatar);
         popapWithEditAvatar.close()
       })
       .catch(api.handleError)
