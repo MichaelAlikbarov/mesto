@@ -17,7 +17,6 @@ import {
   popupImageOpen,
   profileSubtitle,
   profileTitle,
-  avatar,
   popupDeleteCard,
   popupEditAvatar,
   openPopupEditAvatar,
@@ -54,10 +53,9 @@ const openPopupDeleteCard = new PopupWithConfirmation(popupDeleteCard);
 const popapWithEditAvatar = new PopupWithForm(popupEditAvatar, {
   handleFormSubmit: (data) => {
     popapWithEditAvatar.renderLoading(true)
-    const res = data.name;
-    api.updateAvatar(res)
+    api.updateAvatar(data.name)
       .then(() => {
-        userInfo.setAvatarInfo(res);
+        userInfo.setAvatarInfo(data.name);
         popapWithEditAvatar.close()
       })
       .catch(api.handleError)
